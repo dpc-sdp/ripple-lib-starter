@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "@dpc-sdp/ripple-ui-core": {
+      "version": "0.0.0",
+      "signature": "6107f9ae1e3dc6ae6218815a3ab87524",
+      "file": true
+    }
+  }
+}
