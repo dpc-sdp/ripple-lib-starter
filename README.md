@@ -1,30 +1,73 @@
-# Ripple component library starter
+# Ripple Nuxt Layer Starter
 
-This repo is a template for creating new components using the [Ripple](https://github.com/dpc-sdp/ripple-framework) design system (version 2.0).
+Create Nuxt extendable layer with this GitHub template.
 
-It is meant to be a reference implementation for creating your own components that extend Ripple. 
+## Setup
 
-Ripple is maintained by the Single Digital Presence (SDP) team within the Department of Premier and Cabinet (DPC) of the Victorian state government.
+Make sure to install the dependencies:
 
-## Getting started
+```bash
+npm install
+```
 
-First make sure you have the latest versions of the following installed:
+## Working on your theme
 
-- Node
-- Node version manager
-- Yarn or NPM
+Your theme is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
 
-See getting started information at https://ripple.sdp.vic.gov.au/getting-started/developers
+The `.playground` directory should help you on trying your theme during development.
 
+Running `npm dev` will prepare and boot `.playground` directory, which imports your theme itself.
 
-Refer to the following project documentation for more info :
+## Distributing your theme
 
-- [Nuxt 3](https://v3.nuxtjs.org/) 
-- [Vue 3](https://vuejs.org/) 
-- [Vite](https://vitejs.dev/) 
+Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
 
-## More information
+To do so, you only have to check if `files` in `package.json` are valid, then run:
 
-For more information see the the contributing section in the Ripple 2 documentation https://ripple.sdp.vic.gov.au/
+```bash
+npm publish --access public
+```
 
+Once done, your users will only have to run:
 
+```bash
+npm install --save your-theme
+```
+
+Then add the dependency to their `extends` in `nuxt.config`:
+
+```ts
+defineNuxtConfig({
+  extends: 'your-theme'
+})
+```
+
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
+npm dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm build
+```
+
+Or statically generate it with:
+
+```bash
+npm generate
+```
+
+Locally preview production build:
+
+```bash
+npm preview
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.

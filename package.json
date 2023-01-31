@@ -1,33 +1,32 @@
 {
-  "name": "ripple-lib-starter",
-  "private": true,
-  "version": "0.0.0",
+  "name": "nuxt-ripple-starter",
   "type": "module",
+  "version": "0.0.1",
+  "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "dev": "nuxi prepare & nuxi dev .playground",
+    "build": "nuxi build .playground",
+    "generate": "nuxi generate .playground",
+    "preview": "nuxi preview .playground",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "file:.yalc/@dpc-sdp/ripple-ui-core",
-    "vue": "^3.2.37"
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-event": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-grant": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-media": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-news": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-search": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.69"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@storybook/addon-actions": "^6.5.10",
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/addon-interactions": "^6.5.10",
-    "@storybook/addon-links": "^6.5.10",
-    "@storybook/builder-vite": "^0.2.2",
-    "@storybook/testing-library": "^0.0.13",
-    "@storybook/vue3": "^6.5.10",
-    "@vitejs/plugin-vue": "^3.0.0",
-    "babel-loader": "^8.2.5",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.0",
-    "vue-loader": "^16.8.3",
-    "vue-tsc": "^0.38.4"
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "eslint": "^8.28.0",
+    "nuxt": "^3.0.0",
+    "typescript": "^4.9.3"
   }
 }
