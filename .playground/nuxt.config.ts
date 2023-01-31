@@ -10,9 +10,9 @@ export default defineNuxtConfig({
           site: '8888'
         },
         appSearch: {
-          searchKey: '',
-          endpointBase: '',
-          engineName: ''
+          searchKey: 'search-r53dt9vrcmow7jehdb7671uy',
+          endpointBase: 'https://search-improvements-poc.ent.australiaeast.azure.elastic-cloud.com',
+          engineName: 'content-vic-production-app-search'
         }
       }
     }
