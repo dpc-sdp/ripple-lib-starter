@@ -1,0 +1,41 @@
+{
+  "title": "VRQA Board Member",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "job",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "sidebar": {
+    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"],
+    "siteSectionNav": {
+      "title": "Site-section Navigation",
+      "items": [
+        {
+          "text": "Demo Landing Page",
+          "url": "route:entity.node.canonical;node=65",
+          "id": "683e718c-f024-41f5-aea3-3036155ef4c8",
+          "parent": null,
+          "weight": 0
+        }
+      ]
+    }
+  },
+  "referenceNumber": "1234",
+  "boardName": "VRQA | Regulatory",
+  "employmentType": "Part Time",
+  "meetingFrequency": "Weekly",
+  "meetingLength": "1 hour",
+  "location": "Melbourne CBD",
+  "industryName": "String",
+  "postDate": "2020-01-01T19:00:00+11:00",
+  "closeDate": "2020-01-01T21:00:00+11:00",
+  "sections": [
+    {
+      "title": "About the board",
+      "content": "<p>The VRQA is governed by an independent Board, which reports to the Minister for Education, the Minister for Training and Skills, the Minister for Higher Education, and the Minister for Trade. Board membership is by appointment by the Governor in Council.</p> <p>VRQA Board members are selected on the particular skills and experience they can bring to the work of the Board. Skills and experience relevant to the functions of the VRQA include education (school education, vocational education and training, adult community and further education), quality assurance, business management, institutional governance, law, finance and industry.</p> <p>Under Section 4.2.4 (1) of the Act and the General Order dated 27 June 2022, the VRQA Board is composed of:</p> <p>• between 9 and 11 Members appointed jointly by the Minister for Education, the Minister for Training and Skills, the Minister for Higher Education, and the Minister for Trade</p> <p>• the Board Chair appointed jointly by the Minister for Education, the Minister for Training and Skills, the Minister for Higher Education and the Minister for Trade </p> <p>• the Secretary of the Department of Education (DE) or the nominee of the Secretary.</p>"
+    },
+    {
+      "title": "About the role",
+      "content": "<p>VRQA Board members play a key role in setting the strategic direction for the operation of the Authority, ensuring operation in accordance with the strategic plan and Ministerial expectations, subject to performance and regulatory objectives established by the Victorian Government. The Board oversees the financial performance of the Authority and monitors the performance of the VRQA CEO.</p> <p>The primary role of the Board is to ensure the efficient and effective operation of the Authority; and to be accountable to Ministers for the discharge of the VRQA’s statutory functions and its education and financial performance. This includes:</p> <p>•           setting the strategic direction for the operation of the Authority through the VRQA’s strategic plan, which must be accepted by portfolio Ministers</p> <p>•           monitoring the performance of the CEO (Director)</p> <p>•           preparing and approving the VRQA’s annual report for tabling in Parliament</p> <p>•           ensuring that the VRQA operates in accordance with its strategic plan and Ministerial Statement of Expectations provided from time to time</p> <p>•           ensuring that the VRQA operates subject to any educational and regulatory objectives established by the Victorian State Government</p> <p>•           overseeing the financial performance and the financial reporting process including internal and external audit functions.</p> <p>In accordance with the Act, Board members appointed by the Minister for Education, the Minister for Training and Skills and Higher Education and the Minister for Trade may be appointed for terms of up to 3 years.</p>"
+    }
+  ]
+}

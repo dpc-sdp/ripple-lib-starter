@@ -17,17 +17,17 @@
     "node": "^14.16.0 || ^16.11.0"
   },
   "dependencies": {
-    "@dpc-sdp/nuxt-ripple": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-tide-api": "^2.1.0-alpha.69",
-    "@dpc-sdp/ripple-tide-event": "^2.1.0-alpha.69",
-    "@dpc-sdp/ripple-tide-grant": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-tide-landing-page": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-tide-media": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-tide-news": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-tide-publication": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-tide-search": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-ui-core": "^2.1.0-alpha.71",
-    "@dpc-sdp/ripple-ui-forms": "^2.1.0-alpha.71"
+    "@dpc-sdp/nuxt-ripple": "^2.1.0-alpha.77",
+    "@dpc-sdp/ripple-tide-api": "^2.1.0-alpha.76",
+    "@dpc-sdp/ripple-tide-event": "^2.1.0-alpha.76",
+    "@dpc-sdp/ripple-tide-grant": "^2.1.0-alpha.76",
+    "@dpc-sdp/ripple-tide-landing-page": "^2.1.0-alpha.77",
+    "@dpc-sdp/ripple-tide-media": "^2.1.0-alpha.77",
+    "@dpc-sdp/ripple-tide-news": "^2.1.0-alpha.77",
+    "@dpc-sdp/ripple-tide-publication": "^2.1.0-alpha.77",
+    "@dpc-sdp/ripple-tide-search": "^2.1.0-alpha.76",
+    "@dpc-sdp/ripple-ui-core": "^2.1.0-alpha.76",
+    "@dpc-sdp/ripple-ui-forms": "^2.1.0-alpha.76"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "latest",
