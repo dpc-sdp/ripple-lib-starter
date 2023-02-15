@@ -25,7 +25,7 @@ defineProps<Props>()
       </div>
     </div>
     <div class="rpl-col-3-l rpl-col-start-10-l">
-      <RplButton class="tide-job-slider__cta-btn">Apply for role!</RplButton>
+      <RplButton class="tide-job-slider__cta-btn">Apply for job</RplButton>
     </div>
   </div>
 </template>
