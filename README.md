@@ -1,44 +1,42 @@
-# Ripple Nuxt Layer Starter
+# ripple-lib-starter
 
-Create Nuxt extendable layer with this GitHub template.
+A layer is just like a regular Nuxt project, for more information on layers see: [Nuxt Layers](https://nuxt.com/docs/getting-started/layers)
 
 ## Setup
 
-Make sure to install the dependencies:
+Install all dependencies:
 
 ```bash
 npm install
 ```
 
-## Working on your theme
+## Development
 
-Your theme is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
+The `.playground` directory should help you to develop your layer.
 
-The `.playground` directory should help you on trying your theme during development.
+Running `npm run dev` will prepare and boot `.playground` directory, which imports your layer itself.
 
-Running `npm dev` will prepare and boot `.playground` directory, which imports your theme itself.
+## Publishing
 
-## Distributing your theme
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
+To publish, you only have to check if `files` in `package.json` are valid, then run:
 
 ```bash
 npm publish --access public
 ```
 
-Once done, your users will only have to run:
+Once done, you will only have to run:
 
 ```bash
-npm install --save your-theme
+npm install --save ripple-lib-starter
 ```
 
-Then add the dependency to their `extends` in `nuxt.config`:
+Then add the dependency to into the main Nuxt apps `extends` in `nuxt.config`:
 
 ```ts
 defineNuxtConfig({
-  extends: 'your-theme'
+  extends: [
+    'ripple-lib-starter'
+  ]
 })
 ```
 
@@ -47,27 +45,21 @@ defineNuxtConfig({
 Start the development server on http://localhost:3000
 
 ```bash
-npm dev
+npm run dev
 ```
 
 ## Production
 
-Build the application for production:
+Build the production application:
 
 ```bash
-npm build
-```
-
-Or statically generate it with:
-
-```bash
-npm generate
+npm run build
 ```
 
 Locally preview production build:
 
 ```bash
-npm preview
+npm run preview
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
