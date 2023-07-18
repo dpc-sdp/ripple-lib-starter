@@ -1,73 +1,54 @@
-# Ripple Nuxt Layer Starter
+# Ripple-lib-starter
 
-Create Nuxt extendable layer with this GitHub template.
+Ripple Layer starter template for use with Ripple 2.x projects.
+
+See https://ripple.sdp.vic.gov.au/framework/guides/creating-new-layers/ for more information.
+
+A layer allows seperating out like functionality into modular units that can be reused. In Ripple, these are typically new content types or extending existing ones.
+
+For more information on layers see: [Nuxt Layers](https://nuxt.com/docs/getting-started/layers)
 
 ## Setup
 
-Make sure to install the dependencies:
+First you will need to install all dependencies, please ensure first you are using the correct node version in the engines key in package.json
 
 ```bash
 npm install
 ```
 
-## Working on your theme
+## Development
 
-Your theme is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
+The `.playground` directory should help you to develop your layer.
 
-The `.playground` directory should help you on trying your theme during development.
+Running `npm run dev` will prepare and boot `.playground` directory, which imports your layer itself.
 
-Running `npm dev` will prepare and boot `.playground` directory, which imports your theme itself.
-
-## Distributing your theme
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
+To start the development server on http://localhost:3000 
 
 ```bash
-npm publish --access public
+npm run dev
 ```
 
-Once done, your users will only have to run:
+## Using in a Ripple 2.x project
 
-```bash
-npm install --save your-theme
+### Public layer repositories
+
+For public respositories you can reference a new layer directly by using the extends key in `nuxt.config.ts`
+
 ```
-
-Then add the dependency to their `extends` in `nuxt.config`:
-
-```ts
-defineNuxtConfig({
-  extends: 'your-theme'
+export default defineNuxtConfig({
+  extends: [
+    '@dpc-sdp/nuxt-ripple', // An npm installed package
+    'github:dpc-sdp/ripple-vic-gov-au-custom#branchname' // can reference a specific branch or tag
+  ]
 })
 ```
 
-## Development Server
+You can either reference the main branch, a specific branch, a tag or a commit.
 
-Start the development server on http://localhost:3000
+See https://nuxt.com/docs/guide/going-further/layers#git-repository for more information.
 
-```bash
-npm dev
-```
+### Private layer repositories
 
-## Production
+To extend from a private repository, you need to add a GIGET_AUTH=<token> environment variable, with an auth token from your git provider.
 
-Build the application for production:
-
-```bash
-npm build
-```
-
-Or statically generate it with:
-
-```bash
-npm generate
-```
-
-Locally preview production build:
-
-```bash
-npm preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+If your layer has additional dependencies you will need to install them in the project using the layer. See https://ripple.sdp.vic.gov.au/framework/guides/creating-new-layers/#caveats-when-using-layers-from-a-git-repository for more information.
