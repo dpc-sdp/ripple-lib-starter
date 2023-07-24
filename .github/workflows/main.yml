@@ -1,9 +1,10 @@
 name: build and test
 
 on:
+  push:
+    branches: [ $default-branch ]
   pull_request:
-    branches-ignore:
-      - 'feature/**-alpha'
+    branches: [ $default-branch ]
 
 jobs:
   build:
