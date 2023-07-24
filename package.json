@@ -4,23 +4,29 @@
   "version": "0.0.1",
   "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "nuxi prepare & nuxi dev .playground",
+    "dev": "nuxi prepare & NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 nuxi dev .playground",
     "build": "nuxi build .playground",
     "preview": "nuxi preview .playground",
     "lint": "eslint .",
     "cy:open": "cypress open",
     "test": "jest --colors --runInBand",
-    "test:cy": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 npm run dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
+    "test:cy": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
+  },
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts",
+    "./types": "./types.ts"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "latest",
-    "@bahmutov/cypress-esbuild-preprocessor": "latest",
     "@babel/plugin-transform-runtime": "^7.22.4",
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-typescript": "^7.21.5",
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "latest",
     "@dpc-sdp/nuxt-ripple": "2.0.0",
     "@dpc-sdp/nuxt-ripple-analytics": "2.0.0",
     "@dpc-sdp/nuxt-ripple-preview": "2.0.0",
+    "@dpc-sdp/ripple-test-utils": "^2.0.0",
     "@dpc-sdp/ripple-tide-api": "2.0.0",
     "@dpc-sdp/ripple-tide-event": "2.0.0",
     "@dpc-sdp/ripple-tide-grant": "2.0.0",
@@ -37,6 +43,7 @@
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
     "nuxt": "3.5.2",
+    "start-server-and-test": "^2.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.3"
   }

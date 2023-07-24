@@ -1,10 +1,6 @@
 [
   {
     "path": "/",
-    "fixture": "landingPage/home.json"
-  },
-  {
-    "path": "/demo-landing-page",
-    "fixture": "landingPage/demo-landing-page.json"
+    "fixture": "demo/demo.json"
   }
 ]
