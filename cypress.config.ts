@@ -20,7 +20,7 @@ export default defineConfig({
     fixturesFolder: `${testFolder}/fixtures`,
     videosFolder: `${testFolder}/videos`,
     screenshotsFolder: `${testFolder}/screenshots`,
-    async setupNodeEvents(
+    async setupNodeEvents (
       on: Cypress.PluginEvents,
       config: Cypress.PluginConfigOptions
     ): Promise<Cypress.PluginConfigOptions> {
