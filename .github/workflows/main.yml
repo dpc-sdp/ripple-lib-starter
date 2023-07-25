@@ -5,9 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker://cypress/browsers:latest
-      credentials:
-        username: ${{ secrets.E2E_DOCKERHUB_USERNAME }}
-        password: ${{ secrets.E2E_DOCKERHUB_PASSWORD }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -56,9 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker://cypress/browsers:latest
-      credentials:
-        username: ${{ secrets.E2E_DOCKERHUB_USERNAME }}
-        password: ${{ secrets.E2E_DOCKERHUB_PASSWORD }}
+
     steps:
 
       - uses: actions/checkout@v3
@@ -94,9 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker://cypress/browsers:latest
-      credentials:
-        username: ${{ secrets.E2E_DOCKERHUB_USERNAME }}
-        password: ${{ secrets.E2E_DOCKERHUB_PASSWORD }}
+
     steps:
       - uses: actions/checkout@v3
 
