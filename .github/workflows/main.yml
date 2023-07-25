@@ -13,7 +13,7 @@ jobs:
       - name: Save build folder
         uses: actions/upload-artifact@v3
         with:
-          name: playground
+          name: build
           if-no-files-found: error
           path: |
             .playground/node_modules
@@ -27,7 +27,7 @@ jobs:
       - name: Download the build folder
         uses: actions/download-artifact@v3
         with:
-          name: playground
+          name: build
           path: |
             .playground/node_modules
             .playground/.nuxt
