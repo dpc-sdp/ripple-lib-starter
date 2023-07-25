@@ -3,59 +3,126 @@ on: [push]
 jobs:
   Build:
     runs-on: ubuntu-latest
+    container:
+      image: docker://cypress/browsers:latest
+      credentials:
+        username: ${{ secrets.E2E_DOCKERHUB_USERNAME }}
+        password: ${{ secrets.E2E_DOCKERHUB_PASSWORD }}
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm run build
-      - name: Save build folder
-        uses: actions/upload-artifact@v3
+
+      - name: Restore Cache
+        uses: actions/cache@v3
         with:
-          name: build
-          if-no-files-found: error
           path: |
-            .playground/node_modules
-            .playground/.nuxt
+            ~/.npm
+            ~/.cache
             node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ github.ref }}
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Saving Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Build
+        run: npm run build
+
+      - name: Compress build artifacts
+        run: tar -czf build-artifacts.tar.gz .nuxt
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: build-artifacts.tar.gz
+
   Test:
     needs: build
     runs-on: ubuntu-latest
+    container:
+      image: docker://cypress/browsers:latest
+      credentials:
+        username: ${{ secrets.E2E_DOCKERHUB_USERNAME }}
+        password: ${{ secrets.E2E_DOCKERHUB_PASSWORD }}
     steps:
+
       - uses: actions/checkout@v3
-      - name: Download the build folder
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: |
-            .playground/node_modules
-            .playground/.nuxt
-            node_modules
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+
+      - name: Extract build artifacts
+        run: tar -xzf build-artifacts.tar.gz
+
+      - name: Restore Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ github.ref }}
+            ${{ runner.os }}-node-
       - run: npm run lint
       - run: npm test
 
   Cypress:
     needs: build
     runs-on: ubuntu-latest
+    container:
+      image: docker://cypress/browsers:latest
+      credentials:
+        username: ${{ secrets.E2E_DOCKERHUB_USERNAME }}
+        password: ${{ secrets.E2E_DOCKERHUB_PASSWORD }}
     steps:
       - uses: actions/checkout@v3
-      - name: Download the build folder
-        uses: actions/download-artifact@v3
-        with:
-          name: playground
-          path: |
-            .playground/node_modules
-            .playground/.nuxt
-            node_modules
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
         with:
-          start: npm start:cy
-          browser: chrome
+          name: build-artifacts
+
+      - name: Extract build artifacts
+        run: tar -xzf build-artifacts.tar.gz
+
+      - name: Restore Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ github.ref }}
+            ${{ runner.os }}-node-
+
+      - name: Cypress run
+        run: npm run test:cy
