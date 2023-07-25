@@ -19,7 +19,6 @@ jobs:
             .playground/node_modules
             .playground/.nuxt
             node_modules
-          path: .playground
   Test:
     needs: build
     runs-on: ubuntu-latest
