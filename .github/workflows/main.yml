@@ -121,5 +121,8 @@ jobs:
       - name: list file
         run: cd .playground && ls -la
 
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
       - name: Cypress run
         run: npm run test:integration-ci
