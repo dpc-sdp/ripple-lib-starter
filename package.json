@@ -4,14 +4,19 @@
   "version": "0.0.0",
   "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "nuxi prepare & NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 nuxi dev .playground",
     "build": "nuxi build .playground",
+    "dev": "nuxi prepare & nuxi dev .playground",
+    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev",
+    "start": "nuxi start .playground",
+    "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 nuxi start .playground",
+    "mock": "node mockserver",
     "preview": "nuxi preview .playground",
     "lint": "eslint .",
-    "cy:open": "cypress open",
     "test": "jest --colors --runInBand  --passWithNoTests",
-    "test:cy": "start-test 'start:cy' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'",
-    "start:cy": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:integration": "start-test dev:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'",
+    "test:integration-ci": "start-test start:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'npm run cy:run'"
   },
   "exports": {
     ".": "./nuxt.config.ts",
