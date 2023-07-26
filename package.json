@@ -12,9 +12,9 @@
     "mock": "node mockserver",
     "preview": "nuxi preview .playground",
     "lint": "eslint .",
-    "test": "jest --colors --runInBand  --passWithNoTests",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "test:unit": "jest --colors --runInBand  --passWithNoTests",
     "test:integration": "start-test dev:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'",
     "test:integration-ci": "start-test start:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'npm run cy:run'"
   },
