@@ -119,7 +119,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: list file
-        run: ls -la
+        run: cd .playground && ls -la
 
       - name: Cypress run
         run: npm run test:integration-ci
