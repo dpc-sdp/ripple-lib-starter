@@ -8,119 +8,29 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Restore Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ github.ref }}
-            ${{ runner.os }}-node-
-
       - name: Install Dependencies
         run: npm ci
-
-      - name: Saving Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
       - name: Build
         run: npm run build
-
-      - name: Compress build artifacts
-        run: tar -czf build-artifacts.tar.gz .playground/.nuxt
-
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifacts
-          path: build-artifacts.tar.gz
-
-  Test:
-    needs: build
-    runs-on: ubuntu-latest
-    container:
-      image: docker://cypress/browsers:latest
-
-    steps:
-
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-
-      - name: Extract build artifacts
-        run: tar -xzf build-artifacts.tar.gz
-
-      - name: Restore Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ github.ref }}
-            ${{ runner.os }}-node-
       - run: npm run lint
       - run: npm run test:unit
 
   Integration:
-    needs: build
     runs-on: ubuntu-latest
-
-    # container:
-    #   image: docker://cypress/browsers:latest
-
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-
-      - name: Extract build artifacts
-        run: tar -xzf build-artifacts.tar.gz
-
-      - name: Restore Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ github.ref }}
-            ${{ runner.os }}-node-
-
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
-
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build
       - name: Cypress run
-        run: npm run test:integration-ci
+        uses: cypress-io/github-action@v5
+        with:
+          install-command: npm ci
+          build: npm run build
+          start: npm run start:mock
+          wait-on: 'http://localhost:3000'
