@@ -25,12 +25,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Cypress run
         uses: cypress-io/github-action@v5
+        env:
+          # pass the Cypress Cloud record key as an environment variable
+          NUXT_PUBLIC_TIDE_BASE_URL: https://develop.content.reference.sdp.vic.gov.au/
+          NUXT_PUBLIC_TIDE_SITE: 8888
         with:
           install-command: npm ci
           build: npm run build
           start: npm run start:mock
           wait-on: 'http://localhost:3000'
-          env:
-            # pass the Cypress Cloud record key as an environment variable
-            NUXT_PUBLIC_TIDE_BASE_URL: 'https://develop.content.reference.sdp.vic.gov.au/'
-            NUXT_PUBLIC_TIDE_SITE: '8888'
+
