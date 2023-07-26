@@ -118,9 +118,6 @@ jobs:
             ${{ runner.os }}-node-${{ github.ref }}
             ${{ runner.os }}-node-
 
-      - name: add curl
-        run: apt-get update && apt-get install curl -y
-
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
 
