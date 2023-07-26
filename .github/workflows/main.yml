@@ -33,6 +33,6 @@ jobs:
           API_PORT: 3001
         with:
           build: npm run build
-          start: npm start
+          start: echo $NUXT_PUBLIC_TIDE_BASE_URL && npm start
           wait-on: 'http://localhost:3000'
 
