@@ -43,6 +43,12 @@ jobs:
       - name: Compress build artifacts
         run: tar -czf build-artifacts.tar.gz .playground/.nuxt
 
+      - name: list file
+        run: cd .playground/.nuxt && ls -la
+
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
       - name: Archive build artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -117,12 +123,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ github.ref }}
             ${{ runner.os }}-node-
-
-      - name: list file
-        run: cd .playground && ls -la
-
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
 
       - name: Cypress run
         run: npm run test:integration-ci
