@@ -88,8 +88,8 @@ jobs:
   Integration:
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: docker://cypress/browsers:latest
+    # container:
+    #   image: docker://cypress/browsers:latest
 
     steps:
       - uses: actions/checkout@v3
