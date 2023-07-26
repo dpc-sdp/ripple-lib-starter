@@ -1,22 +1,18 @@
 name: Build & Test
 on: [push]
 jobs:
-  # Build:
-  #   runs-on: ubuntu-latest
-  #   container:
-  #     image: docker://cypress/browsers:latest
-
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
-  #     - name: Install Dependencies
-  #       run: npm ci
-  #     - name: Build
-  #       run: npm run build
-  #     - run: npm run lint
-  #     - run: npm run test:unit
+  Build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm ci
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test:unit
 
   Integration:
     runs-on: ubuntu-latest
