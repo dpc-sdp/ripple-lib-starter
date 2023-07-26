@@ -3,6 +3,9 @@ on: [push]
 jobs:
   Build:
     runs-on: ubuntu-latest
+    container:
+      image: docker://cypress/browsers:latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -40,53 +43,47 @@ jobs:
       - name: Compress build artifacts
         run: tar -czf build-artifacts.tar.gz .playground/.nuxt
 
-      - name: list file
-        run: cd .playground/.nuxt && ls -la
-
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
-
       - name: Archive build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build-artifacts
           path: build-artifacts.tar.gz
 
-  # Test:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   container:
-  #     image: docker://cypress/browsers:latest
+  Test:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: docker://cypress/browsers:latest
 
-  #   steps:
+    steps:
 
-  #     - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-  #     - name: Download build artifacts
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: build-artifacts
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
 
-  #     - name: Extract build artifacts
-  #       run: tar -xzf build-artifacts.tar.gz
+      - name: Extract build artifacts
+        run: tar -xzf build-artifacts.tar.gz
 
-  #     - name: Restore Cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: |
-  #           ~/.npm
-  #           ~/.cache
-  #           node_modules
-  #         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-node-${{ github.ref }}
-  #           ${{ runner.os }}-node-
-  #     - run: npm run lint
-  #     - run: npm run test:unit
+      - name: Restore Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ github.ref }}
+            ${{ runner.os }}-node-
+      - run: npm run lint
+      - run: npm run test:unit
 
   Integration:
     needs: build
@@ -120,6 +117,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ github.ref }}
             ${{ runner.os }}-node-
+
+      - name: add curl
+        run: apt-get update && apt-get install curl -y
+
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
 
       - name: Cypress run
         run: npm run test:integration-ci
