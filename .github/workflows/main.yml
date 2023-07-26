@@ -32,5 +32,5 @@ jobs:
           wait-on: 'http://localhost:3000'
           env:
             # pass the Cypress Cloud record key as an environment variable
-            NUXT_PUBLIC_TIDE_BASE_URL: https://develop.content.reference.sdp.vic.gov.au/
-            NUXT_PUBLIC_TIDE_SITE: 8888
+            NUXT_PUBLIC_TIDE_BASE_URL: 'https://develop.content.reference.sdp.vic.gov.au/'
+            NUXT_PUBLIC_TIDE_SITE: '8888'
