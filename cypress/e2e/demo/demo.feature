@@ -1,6 +1,6 @@
-Feature: Job page
+Feature: Demo test
 
-  Example of mocked page
+  Example test - update as required or delete.
 
   Background:
     Given the endpoint "/api/tide/page" with query "?path=/test-content-type&site=8888" returns fixture "/demo/demo" with status 200

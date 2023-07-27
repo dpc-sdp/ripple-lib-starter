@@ -18,7 +18,7 @@
       <slot name="breadcrumbs" />
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TideDemoHeader :header="{ title: page.title}" :has-breadcrumbs="hasBreadcrumbs" />
+      <TideDemoHeader :header="{ title: page.title }" :has-breadcrumbs="hasBreadcrumbs" />
     </template>
     <template #body>
       <h3 class="rpl-type-h3 rpl-u-margin-b-4 rpl-u-margin-t-4">
