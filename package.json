@@ -1,22 +1,38 @@
 {
   "name": "ripple-lib-starter",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "nuxi prepare & nuxi dev .playground",
     "build": "nuxi build .playground",
+    "dev": "nuxi prepare & nuxi dev .playground",
+    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev",
+    "start": "nuxi start .playground",
+    "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 nuxi start .playground",
+    "mock": "node mockserver",
     "preview": "nuxi preview .playground",
     "lint": "eslint .",
-    "test": "jest --colors --runInBand --passWithNoTests"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:unit": "jest --colors --runInBand  --passWithNoTests",
+    "test:integration": "start-test dev:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'",
+    "test:integration-ci": "start-test start:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'npm run cy:run'"
+  },
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts",
+    "./types": "./types.ts"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.4",
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-typescript": "^7.21.5",
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "latest",
     "@dpc-sdp/nuxt-ripple": "2.0.0",
     "@dpc-sdp/nuxt-ripple-analytics": "2.0.0",
     "@dpc-sdp/nuxt-ripple-preview": "2.0.0",
+    "@dpc-sdp/ripple-test-utils": "^2.0.0",
     "@dpc-sdp/ripple-tide-api": "2.0.0",
     "@dpc-sdp/ripple-tide-event": "2.0.0",
     "@dpc-sdp/ripple-tide-grant": "2.0.0",
@@ -28,9 +44,12 @@
     "@dpc-sdp/ripple-ui-core": "2.0.0",
     "@dpc-sdp/ripple-ui-forms": "2.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "concurrently": "^7.6.0",
+    "cypress": "^12.5.1",
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
     "nuxt": "3.5.2",
+    "start-server-and-test": "^2.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.3"
   }
