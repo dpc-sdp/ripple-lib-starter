@@ -1,23 +1,5 @@
-import type { TidePageBase, TideDynamicPageComponent, TideImageField } from '@dpc-sdp/ripple-tide-api/types'
-
-export type TideDemoHeader = {
-  title: string
-  summary: string
-}
-
-export type TideDemoBody = {
-  image: TideImageField
-  caption: string
-  content: string
-}
-
-export interface TideDemoPage extends TidePageBase {
-  /**
-   * @description RplHeader component
-   */
-  header: TideDemoHeader
-  /**
-   * @description Dynamic components for the body section
-   */
-  bodyComponents: TideDynamicPageComponent<any>[]
-}
+// Add types for your layer here, this will be exported so other layers can use them
+// import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
+/*
+export interface TideDemoPage extends TidePageBase {}
+*/
