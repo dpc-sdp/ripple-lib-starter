@@ -1,4 +1,4 @@
-name: Publish Package
+name: Node.js Package
 
 on:
   release:
@@ -22,7 +22,7 @@ jobs:
           git config --global user.email "sdp.devs@dpc.vic.gov.au"
           git config --global user.name "SDP Deploy"
       - name: Bump version from release number
-        run: npm version ${{ github.event.release.name }} --allow-same-version
+        run: npm version ${{ github.event.release.name }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to GH Package registry
