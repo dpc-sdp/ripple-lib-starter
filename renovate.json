@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "hostRules": [
+    {
+      "matchHost": "https://npm.pkg.github.com/",
+      "hostType": "npm",
+      "encrypted": {
+        "token": "wcFMA/xDdHCJBTolARAAgBTHYRassIsacNXiuI1TB8Fx8i5X2GlRLyvTNIl/orzeO5zJCgemyQDXBMa1Gfzy3vqDtrFZp0iAqq27OFk2kWgmsheh9jZPIpfyqm34ZMehz4yYzVohwBu6oFxJbr2YOdJvNexj2fzazNbqRpF0fZYA8MTiDk/P/Yd/K96x+P2TsYPPqXBk2y4lzBKoyWIYotLhacq5HZVufkYhu9373TrAoClCASBl7ObKX65HEl1PT+chlIslQqZD2eXHukNovx8VRV8a/IyeRiEBoHQYevMKZNKfuKgqfN3Z5ffQLFq7wX9jWo9DkCbvnGp2kJ+B7icOkVQ5BJOLuPmCdT7n2/APHH28UxichAuFvmgMoVgIhYUtNcV2KLHvIj0Lo0U5FwMFSQkEd1FflCuSVLENco3Oo6bQEH9wdyyHIJOEKE+zbdD+oXv5PxcXTJIwxbRfxlfrErs9NO7bH/RdAum+Ol9Q82V1Dr/vGOCh33ef4B5CLR3suK+fMdsHy4f/9a1/Y8llWunBs7EAp7U8eaPQx+BZ/dMuQltvHqCTwxRMYB1FBn5iLjtgarvQGRbTEu0ZCwLCEPsQw9VtH0Kl7A24rKH0TV82ZzSHz1Kyn60oCL4gjkxFdX3BKn44e+sgfNOGYuY+aj7+Rn3D2JqEBELHnhNEaiobAI99Di7mvRHY2lbSdgGiAZpReLl2VCdkqfOcDx38JsY5Fp/erZ54RKkGH0YwXOJabBRDstxVQo3agVqO8FJU9HZ1eoXuujafFK0HiqgN3UGgF+2TDjxKcHDmg9Iqc32URemGTBv+LG0FkQC1adG1rkqwW1c+Npnu+ma0t1cjCuwz980"
+      }
+    }
+  ],
+  "enabledManagers": ["npm"],
+  "packageRules": [
+    {
+      "groupName": "SDP Ripple updates",
+      "matchPackagePrefixes": "@dpc-sdp",
+      "automerge": true
+    },
+    {
+      "groupName": "Low risk dev dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "excludePackagePrefixes": "@dpc-sdp",
+      "excludeDepNames": ["nuxt"],
+      "automerge": true
+    },
+    {
+      "groupName": "Nuxt updates",
+      "matchDepNames": ["nuxt"],
+      "automerge": false
+    }
+  ]
+}
