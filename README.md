@@ -40,7 +40,7 @@ Make sure **Set as the latest release** is ticked then **Publish release**. A Gi
 
 Add to the site app via `package.json` e.g.
 
-```json
+```ts
 dependencies: {
   ...
   "@dpc-sdp/ripple-lib-starter": "v0.1.0",
@@ -50,7 +50,7 @@ dependencies: {
 
 Finally, the site app will need to add this custom later in its own `nuxt.config.ts` e.g.
 
-```json
+```ts
 export default defineNuxtConfig({
   // See https://nuxt.com/docs/getting-started/layers - please add custom layers after the //custom layers comment
   extends: [
