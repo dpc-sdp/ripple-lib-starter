@@ -12,7 +12,7 @@
   "scripts": {
     "build": "nuxi build .playground",
     "dev": "nuxi prepare & nuxi dev .playground",
-    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently npm:mockserver npm:dev",
+    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev",
     "start": "nuxi start .playground",
     "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 nuxi start .playground",
     "mockserver": "nuxt-ripple mock ./cypress/fixtures -S ./cypress/fixtures/site/reference.json -R mock-routes.json",

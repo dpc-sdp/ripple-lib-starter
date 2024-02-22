@@ -9,4 +9,4 @@ Feature: Example content type
   @mockserver
   Scenario: Example - Content type loads
     Given I visit the page "/"
-    Then the title should be "Example content type"
+    Then the title should be "Example content type header"
