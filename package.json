@@ -42,7 +42,7 @@
     "@dpc-sdp/ripple-tide-publication": "2.7.0",
     "@dpc-sdp/ripple-tide-search": "2.7.0",
     "@dpc-sdp/ripple-tide-topic": "2.7.0",
-    "cypress": "^12.5.1",
+    "cypress": "^13.0.0",
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
     "nuxt": "3.6.5",
