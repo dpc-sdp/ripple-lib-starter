@@ -16,12 +16,35 @@ npm i
 
 The `.playground` directory should help you to develop your layer.
 
-Set up a `.env` file [like this one](https://github.com/dpc-sdp/ripple-framework/blob/develop/examples/nuxt-app/.example.env) under `.playground` to change the backend API, site ID and search details.
+Set up a `.env` file [like this one](https://github.com/dpc-sdp/ripple-lib-starter/blob/main/.playground/example.env) under `.playground` to change the backend API, site ID and search details.
+
+```bash
+cp .playground/example.env .playground/.env
+```
 
 To run dev mode in the `.playground` directory, which imports your layer itself:
 
 ```bash
 npm run dev
+```
+
+### Optional deps
+
+There may be a need to reuse some of the SDP core functionality from:
+
+- `ripple-tide-landing-page` dynamic components
+- `ripple-tide-webform` webform schema API
+- `ripple-ui-core` Ripple components
+- `ripple-ui-forms` FormKit definitions and components
+
+These are delivered through `@dpc-sdp/ripple-sdp-core` and `@dpc-sdp/nuxt-ripple` for convenience, but can also be added explicitly to the `package.json` of this repo for use in your custom code. e.g.
+
+```ts
+dependencies: {
+  ...
+  "@dpc-sdp/ripple-tide-landing-page": "v2.14.0",
+  ...
+}
 ```
 
 ## Publishing
@@ -38,7 +61,7 @@ Make sure **Set as the latest release** is ticked then **Publish release**. A Gi
 
 ## Using the published package
 
-Add to the site app via `package.json` e.g.
+Add to the site app via `package.json` e.g. (update package name and version where appropriate)
 
 ```ts
 dependencies: {
@@ -48,7 +71,7 @@ dependencies: {
 }
 ```
 
-Finally, the site app will need to add this custom later in its own `nuxt.config.ts` e.g.
+Finally, the site app will need to add this custom layer in its own `nuxt.config.ts` e.g.
 
 ```ts
 export default defineNuxtConfig({
@@ -58,21 +81,9 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple',
     '@dpc-sdp/nuxt-ripple-analytics',
     '@dpc-sdp/nuxt-ripple-preview',
-
+    '@dpc-sdp/ripple-sdp-core',
     // Custom layers
-    '@dpc-sdp/ripple-lib-starter',
-
-    // Content types
-    '@dpc-sdp/ripple-tide-event',
-    '@dpc-sdp/ripple-tide-topic',
-    '@dpc-sdp/ripple-tide-landing-page',
-    '@dpc-sdp/ripple-tide-grant',
-    '@dpc-sdp/ripple-tide-publication',
-    '@dpc-sdp/ripple-tide-media',
-    '@dpc-sdp/ripple-tide-news',
-    '@dpc-sdp/ripple-tide-search',
-
-    // Local layers
+    '@dpc-sdp/ripple-lib-starter' // <-- update name
   ]
 })
 ```
