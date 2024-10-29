@@ -36,7 +36,7 @@
     "@dpc-sdp/ripple-tide-api": "2.19.0",
     "@dpc-sdp/ripple-sdp-core": "2.19.0",
     "cypress": "13.15.1",
-    "eslint": "^8.36.0",
+    "eslint": "^9.0.0",
     "jest-environment-jsdom": "^29.5.0",
     "nuxt": "3.11.2",
     "start-server-and-test": "^2.0.5",
