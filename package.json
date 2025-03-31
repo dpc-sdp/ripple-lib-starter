@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-lib-starter",
   "type": "module",
-  "version": "0.0.0",
+  "version": "2.28.0",
   "repository": "https://github.com/dpc-sdp/ripple-lib-starter",
   "main": "./nuxt.config.ts",
   "exports": {
@@ -20,32 +20,37 @@
     "lint": "eslint .",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:unit": "jest --colors --runInBand --passWithNoTests",
     "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test dev:mock tcp:3000 'cy:open'",
-    "test:integration-ci": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test start:mock tcp:3000 'cy:run'"
+    "test:integration-ci": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test start:mock tcp:3000 'cy:run'",
+    "test:unit": "vitest run",
+    "test:unit-watch": "vitest watch"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-typescript": "^7.23.2",
-    "@dpc-sdp/eslint-config-ripple": "2.19.0",
-    "@dpc-sdp/nuxt-ripple": "2.19.0",
-    "@dpc-sdp/nuxt-ripple-analytics": "2.19.0",
-    "@dpc-sdp/nuxt-ripple-preview": "2.19.0",
-    "@dpc-sdp/ripple-test-utils": "2.19.0",
-    "@dpc-sdp/ripple-tide-api": "2.19.0",
-    "@dpc-sdp/ripple-sdp-core": "2.19.0",
+    "@dpc-sdp/eslint-config-ripple": "2.28.0",
+    "@dpc-sdp/nuxt-ripple": "2.28.0",
+    "@dpc-sdp/nuxt-ripple-analytics": "2.28.0",
+    "@dpc-sdp/nuxt-ripple-cli": "2.28.0",
+    "@dpc-sdp/nuxt-ripple-preview": "2.28.0",
+    "@dpc-sdp/ripple-sdp-core": "2.28.0",
+    "@dpc-sdp/ripple-test-utils": "2.28.0",
+    "@dpc-sdp/ripple-tide-api": "2.28.0",
+    "@dpc-sdp/ripple-tide-landing-page": "2.28.0",
+    "@dpc-sdp/ripple-ui-core": "2.28.0",
+    "@dpc-sdp/ripple-ui-forms": "2.28.0",
+    "@dpc-sdp/ripple-ui-maps": "2.28.0",
     "cypress": "13.15.1",
     "eslint": "^8.36.0",
-    "jest-environment-jsdom": "^29.5.0",
-    "nuxt": "3.11.2",
+    "nuxt": "^3.16.1",
     "start-server-and-test": "^2.0.5",
-    "ts-jest": "^29.0.5",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "vitest": "3.0.5"
   },
   "engines": {
-    "node": "^20.0.0",
-    "npm": "^9.5.1 || ^10.2.4"
+    "node": "^20.18.0 || ^22.11.0",
+    "npm": "^10.8.1"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

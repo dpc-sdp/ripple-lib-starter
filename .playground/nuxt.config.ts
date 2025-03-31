@@ -22,5 +22,6 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple-preview',
     '@dpc-sdp/ripple-sdp-core',
     '..'
-  ]
+  ],
+  compatibilityDate: '2024-12-19'
 })
