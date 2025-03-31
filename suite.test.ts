@@ -1,3 +1,5 @@
+// This tests the suite configuration, please remove after successful test!
+
 import { expect, describe, it } from 'vitest'
 
 const reflect = (param: number) => param
