@@ -32,7 +32,6 @@ jspm_packages/
 .cache
 !/.github/workflows/build.yml
 !/.github/workflows/upgrade.yml
-!/.github/pull_request_template.md
 !/.prettierignore
 !/.prettierrc.json
 !/test/
@@ -41,4 +40,14 @@ jspm_packages/
 /lib
 /dist/
 !/.nvmrc
+.nuxt
+nuxt.d.ts
+.output
+.env
+!/.github/pull_request_template.md
+!/tsconfig.json
+!/.eslintrc
+cypress/downloads
+cypress/screenshots
+cypress/videos 
 !/.projenrc.ts
