@@ -46,7 +46,6 @@ nuxt.d.ts
 .env
 !/.github/pull_request_template.md
 !/tsconfig.json
-!/.eslintrc
 cypress/downloads
 cypress/screenshots
 cypress/videos 

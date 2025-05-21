@@ -1,6 +1,5 @@
 {
   "files": [
-    ".eslintrc",
     ".gitattributes",
     ".github/pull_request_template.md",
     ".github/workflows/build.yml",

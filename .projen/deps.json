@@ -30,6 +30,11 @@
       "type": "build"
     },
     {
+      "name": "@nuxt/eslint",
+      "version": "^1.4.1",
+      "type": "build"
+    },
+    {
       "name": "@types/node",
       "type": "build"
     },
@@ -40,6 +45,11 @@
     {
       "name": "cypress",
       "version": "^12.5.1",
+      "type": "build"
+    },
+    {
+      "name": "eslint",
+      "version": "^9.27.0",
       "type": "build"
     },
     {
