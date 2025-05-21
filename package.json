@@ -27,9 +27,9 @@
     "@dpc-sdp/nuxt-ripple-analytics": "^2.31.0",
     "@dpc-sdp/nuxt-ripple-preview": "^2.31.0",
     "@dpc-sdp/ripple-sdp-core": "^2.31.0",
-    "@dpc-sdp/ripple-sdp-projen-config": "^0.0.29",
+    "@dpc-sdp/ripple-sdp-projen-config": "^0.0.30",
     "@dpc-sdp/ripple-test-utils": "^2.31.0",
-    "@types/node": "^18.15.10",
+    "@types/node": "^18.19.103",
     "constructs": "10.0.0",
     "cypress": "^12.5.1",
     "jscodeshift": "^17.3.0",
@@ -38,7 +38,7 @@
     "projen": "0.92.6",
     "start-server-and-test": "^2.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.0.2"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "constructs": "^10.0.0",

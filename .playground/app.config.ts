@@ -1,4 +1,4 @@
-import pkg from './package.json'
+import pkg from './../package.json'
 import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
 import { defineAppConfig } from '#imports'
 
