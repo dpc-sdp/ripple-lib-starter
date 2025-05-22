@@ -8,5 +8,7 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple-preview',
     '@dpc-sdp/ripple-sdp-core',
     '..'
-  ]
+  ],
+
+  modules: ['@nuxt/eslint']
 })
