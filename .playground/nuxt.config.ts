@@ -1,6 +1,7 @@
 // See: https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-05-10',
+  compatibilityDate: '{{{compatibilityDate}}}',
+  modules: ['@nuxt/eslint'],
 
   extends: [
     '@dpc-sdp/nuxt-ripple',
@@ -8,7 +9,5 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple-preview',
     '@dpc-sdp/ripple-sdp-core',
     '..'
-  ],
-
-  modules: ['@nuxt/eslint']
+  ]
 })
