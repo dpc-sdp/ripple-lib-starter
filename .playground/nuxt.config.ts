@@ -9,25 +9,5 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple-preview',
     '@dpc-sdp/ripple-sdp-core',
     '..'
-  ],
-
-  modules: ['@nuxt/eslint'],
-
-  extends: [
-    '@dpc-sdp/nuxt-ripple',
-    '@dpc-sdp/nuxt-ripple-analytics',
-    '@dpc-sdp/nuxt-ripple-preview',
-    '@dpc-sdp/ripple-sdp-core',
-    '..'
-  ],
-
-  modules: ['@nuxt/eslint'],
-
-  extends: [
-    '@dpc-sdp/nuxt-ripple',
-    '@dpc-sdp/nuxt-ripple-analytics',
-    '@dpc-sdp/nuxt-ripple-preview',
-    '@dpc-sdp/ripple-sdp-core',
-    '..'
   ]
 })
