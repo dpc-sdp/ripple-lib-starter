@@ -1,25 +1,17 @@
+import pkg from './../package.json'
+import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
+import { defineAppConfig } from '#imports'
+
 export default defineAppConfig({
+  project: {
+    name: pkg.name,
+    version: pkg.version
+  },
   ripple: {
-    featureFlags: {
-      contentCollectionSearchConnector: 'elasticsearch'
-    },
-    theme: {
-      'rpl-clr-primary': '#6B19A3',
-      'rpl-clr-footer-alt': '#6B19A3',
-      'rpl-clr-link': '#6B19A3',
-      'rpl-clr-type-primary-accessible': '#6B19A3',
-      'rpl-clr-primary-alt': '#3F006B',
-      'rpl-clr-type-primary-alt-accessible': '#3F006B',
-      'rpl-clr-footer': '#3F006B',
-      'rpl-clr-type-footer-accessible': '#3F006B',
-      'rpl-clr-primary-alpha': 'rgba(107, 25, 163, 0.5)',
-      'rpl-clr-accent': '#6DDD97',
-      'rpl-clr-accent-alt': '#EAFAF0',
-      'rpl-clr-focus': '#9DEF65',
-      'rpl-clr-gradient-horizontal':
-        'linear-gradient(90deg, #382484 0%, #5A0099 20%, #7623B0 35%, #2E7478 50%, #2FA26F 70%, #2FCE6A 80%)',
-      'rpl-clr-gradient-vertical':
-        'linear-gradient(180deg, #382484 0%, #5A0099 20%, #7623B0 35%, #2E7478 50%, #2FA26F 70%, #2FCE6A 80%)'
-    }
+    packages: getDpcPkgs({ ...pkg.dependencies, ...pkg.devDependencies }),
+    version: pkg.devDependencies['@dpc-sdp/nuxt-ripple'],
+    // featureFlags and theme are usually populated from the Tide site taxonomy values. Use these for local testing development. See https://ripple.sdp.vic.gov.au/framework/guides/brand-application
+    featureFlags: {},
+    theme: {}
   }
 })

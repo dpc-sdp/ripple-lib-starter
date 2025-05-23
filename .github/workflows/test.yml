@@ -1,7 +1,7 @@
 name: Build & Test
 on: [push]
 jobs:
-  Build-test:
+  Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,21 +15,10 @@ jobs:
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.GPR_NPM_INSTALL_TOKEN}}
-      - run: npm run build
+      - name: Build
+        run: npm run build
       - run: npm run lint
       - run: npm run test:unit
-
-  Integration:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          always-auth: true
-          registry-url: 'https://npm.pkg.github.com/'
-          node-version: 18
-          scope: '@dpc-sdp'
       - name: Cypress run
         uses: cypress-io/github-action@v5
         env:
@@ -40,7 +29,6 @@ jobs:
           API_PORT: '3001'
           NODE_AUTH_TOKEN: ${{secrets.GPR_NPM_INSTALL_TOKEN}}
         with:
-          build: npm run build
+          build: echo "Build already done in Setup job"
           start: npm start
           wait-on: 'http://localhost:3000/assets/fonts/VIC-Regular.woff2'
-

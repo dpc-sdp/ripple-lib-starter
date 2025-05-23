@@ -5,6 +5,7 @@ export default defineConfig({
     coverage: {
       include: ['**/*.ts'],
       exclude: ['**/types.ts', '**/*.d.ts', '.playground/**/*.config.ts']
-    }
+    },
+    passWithNoTests: true
   }
 })
