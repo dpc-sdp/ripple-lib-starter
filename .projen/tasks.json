@@ -135,17 +135,15 @@
     },
     "test:integration": {
       "name": "test:integration",
+      "env": {
+        "NUXT_PUBLIC_API_URL": "http://localhost:3001",
+        "NUXT_PUBLIC_TIDE_SITE": "TEST_SITE",
+        "NUXT_PUBLIC_TIDE_BASE_URL": "https://test.base.url/",
+        "API_PORT": "3001"
+      },
       "steps": [
         {
-          "exec": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test dev:mock tcp:3000 'cy:open'"
-        }
-      ]
-    },
-    "test:integration-ci": {
-      "name": "test:integration-ci",
-      "steps": [
-        {
-          "exec": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test start:mock tcp:3000 'cy:run'"
+          "exec": "start-test dev tcp:3000 'cy:open'"
         }
       ]
     },

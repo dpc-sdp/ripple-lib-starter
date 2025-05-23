@@ -16,7 +16,6 @@
     "start:mock": "npx projen start:mock",
     "test": "npx projen test",
     "test:integration": "npx projen test:integration",
-    "test:integration-ci": "npx projen test:integration-ci",
     "test:unit": "npx projen test:unit",
     "upgrade": "npx projen upgrade",
     "projen": "npx projen"
@@ -26,7 +25,7 @@
     "@dpc-sdp/nuxt-ripple-analytics": "^2.31.0",
     "@dpc-sdp/nuxt-ripple-preview": "^2.31.0",
     "@dpc-sdp/ripple-sdp-core": "^2.31.0",
-    "@dpc-sdp/ripple-sdp-projen-config": "^0.0.38",
+    "@dpc-sdp/ripple-sdp-projen-config": "^0.0.39",
     "@dpc-sdp/ripple-test-utils": "^2.31.0",
     "@nuxt/eslint": "^1.4.1",
     "@types/node": "^22.15.21",
