@@ -2,11 +2,11 @@
   <TideBaseLayout
     :site="site"
     :page="page"
-    :siteSection="page.siteSection"
-    :pageTitle="page.title"
-    :pageLanguage="page.lang"
-    :updatedDate="page.changed || page.created"
-    :showContentRating="page.showContentRating"
+    :site-section="page.siteSection"
+    :page-title="page.title"
+    :page-language="page.lang"
+    :updated-date="page.changed || page.created"
+    :show-content-rating="page.showContentRating"
   >
     <template #aboveHeader>
       <slot name="aboveHeader" />
@@ -20,7 +20,7 @@
     <template #aboveBody="{ hasBreadcrumbs }">
       <TideExampleContentTypeHeader
         :header="page.header"
-        :hasBreadcrumbs="hasBreadcrumbs"
+        :has-breadcrumbs="hasBreadcrumbs"
       />
     </template>
     <template #body="{ hasSidebar }">
@@ -32,7 +32,7 @@
       <TideDynamicComponents
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"
-        :hasSidebar="hasSidebar"
+        :has-sidebar="hasSidebar"
       />
     </template>
     <template #sidebar>
@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import type { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideExampleContentTypePage } from '../../types'
 
 interface Props {

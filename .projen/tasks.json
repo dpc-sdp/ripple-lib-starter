@@ -8,15 +8,6 @@
         }
       ]
     },
-    "compile": {
-      "name": "compile",
-      "description": "Only compile",
-      "steps": [
-        {
-          "exec": "tsc --build"
-        }
-      ]
-    },
     "cy:open": {
       "name": "cy:open",
       "steps": [
