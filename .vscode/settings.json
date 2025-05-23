@@ -1,0 +1,28 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "cSpell.words": [
+    "colour",
+    "composables",
+    "formkit",
+    "jsonapi",
+    "maxlength",
+    "mockserver",
+    "nuxt",
+    "pathe",
+    "scripthost",
+    "stylelint",
+    "vite",
+    "vitejs",
+    "Webform"
+  ],
+  "cucumberautocomplete.steps": [
+    "./layers/**/__spec__/step_definitions/*.ts",
+    "./cypress/support/step_definitions/**/*.ts",
+    "./node_modules/@dpc-sdp/ripple-test-utils/step_definitions/**/*.ts"
+  ]
+}
