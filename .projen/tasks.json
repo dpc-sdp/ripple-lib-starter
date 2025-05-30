@@ -101,6 +101,15 @@
         }
       ]
     },
+    "post-upgrade": {
+      "name": "post-upgrade",
+      "description": "Runs after upgrading dependencies",
+      "steps": [
+        {
+          "exec": "npm install"
+        }
+      ]
+    },
     "preview": {
       "name": "preview",
       "steps": [
@@ -163,7 +172,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@dpc-sdp/ripple-sdp-projen-config,@types/node,constructs,jscodeshift,prettier,projen,ts-node,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@dpc-sdp/ripple-sdp-projen-config,@types/node,jscodeshift,prettier,projen,ts-node,typescript"
         },
         {
           "exec": "npm install"

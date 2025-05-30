@@ -39,11 +39,13 @@ jspm_packages/
 !/src/
 /lib
 /dist/
+!/.editorconfig
 !/.nvmrc
 .nuxt
 nuxt.d.ts
 .output
 .env
+.DS_Store
 !/.github/pull_request_template.md
 !/tsconfig.json
 cypress/downloads

@@ -29,7 +29,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GPR_NPM_INSTALL_TOKEN}}
         run: npm ci
       - run: npm run build
-      - run: npm run lint
       - name: Find mutations
         id: self_mutation
         run: |-
