@@ -13,9 +13,17 @@ jobs:
       contents: read
     outputs:
       patch_created: ${{ steps.create_patch.outputs.patch_created }}
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.GPR_NPM_INSTALL_TOKEN}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          always-auth: true
+          registry-url: https://npm.pkg.github.com/
+          node-version: 20
+          scope: "@dpc-sdp"
       - name: Install dependencies
         run: npm ci
       - name: Upgrade dependencies
@@ -39,6 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: write
     if: ${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
@@ -84,3 +93,10 @@ jobs:
           author: sdpdeploy <sdp.devs@dpc.vic.gov.au>
           committer: sdpdeploy <sdp.devs@dpc.vic.gov.au>
           signoff: true
+      - name: Enable Pull Request Automerge
+        if: steps.create-pr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{secrets.PROJEN_GITHUB_TOKEN}}
+          pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
+          merge-method: squash

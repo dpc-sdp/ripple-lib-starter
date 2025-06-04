@@ -40,6 +40,7 @@
     },
     {
       "name": "constructs",
+      "version": "^10.0.0",
       "type": "build"
     },
     {
@@ -81,14 +82,6 @@
     {
       "name": "typescript",
       "type": "build"
-    },
-    {
-      "name": "constructs",
-      "type": "peer"
-    },
-    {
-      "name": "projen",
-      "type": "peer"
     },
     {
       "name": "vitest",
