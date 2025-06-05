@@ -29,7 +29,7 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
+          "exec": "npx tsx --tsconfig tsconfig.dev.json .projenrc.ts"
         }
       ]
     },
@@ -172,13 +172,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@dpc-sdp/ripple-sdp-projen-config,@types/node,jscodeshift,prettier,projen,ts-node,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@dpc-sdp/ripple-sdp-projen-config,@types/node,jscodeshift,prettier,projen,tsx,typescript"
         },
         {
           "exec": "npm install"
         },
         {
-          "exec": "npm update @dpc-sdp/nuxt-ripple-analytics @dpc-sdp/nuxt-ripple-preview @dpc-sdp/nuxt-ripple @dpc-sdp/ripple-sdp-core @dpc-sdp/ripple-sdp-projen-config @dpc-sdp/ripple-test-utils @nuxt/eslint @types/node constructs cypress eslint jscodeshift nuxt prettier projen start-server-and-test ts-node typescript vitest"
+          "exec": "npm update @dpc-sdp/nuxt-ripple-analytics @dpc-sdp/nuxt-ripple-preview @dpc-sdp/nuxt-ripple @dpc-sdp/ripple-sdp-core @dpc-sdp/ripple-sdp-projen-config @dpc-sdp/ripple-test-utils @nuxt/eslint @types/node constructs cypress eslint jscodeshift nuxt prettier projen start-server-and-test tsx typescript vitest"
         },
         {
           "exec": "npx projen"
