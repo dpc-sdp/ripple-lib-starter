@@ -17,7 +17,6 @@
 /.projen/deps.json linguist-generated
 /.projen/files.json linguist-generated
 /.projen/tasks.json linguist-generated
-/.projenrc.ts linguist-generated
 /package-lock.json linguist-generated
 /package.json linguist-generated
 /tsconfig.dev.json linguist-generated
