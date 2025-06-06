@@ -1,6 +1,6 @@
 // See: https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '{{{compatibilityDate}}}',
+  compatibilityDate: '2025-05-10',
   extends: [
     '@dpc-sdp/nuxt-ripple',
     '@dpc-sdp/nuxt-ripple-analytics',
