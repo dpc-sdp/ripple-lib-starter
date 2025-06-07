@@ -9,7 +9,6 @@
     "dev": "npx projen dev",
     "dev:mock": "npx projen dev:mock",
     "eject": "npx projen eject",
-    "lagoon:env": "npx projen lagoon:env",
     "lint": "npx projen lint",
     "post-upgrade": "npx projen post-upgrade",
     "preview": "npx projen preview",
