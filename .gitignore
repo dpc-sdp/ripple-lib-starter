@@ -51,5 +51,4 @@ nuxt.d.ts
 cypress/downloads
 cypress/screenshots
 cypress/videos 
-.vscode
 !/.projenrc.ts
