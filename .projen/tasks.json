@@ -84,15 +84,6 @@
         }
       ]
     },
-    "lagoon:env": {
-      "name": "lagoon:env",
-      "description": "Copy environment variables from Lagoon into .playground/.env. Requires lagoon CLI installed.",
-      "steps": [
-        {
-          "exec": "./scripts/lagoon-env.sh --output ./.playground/.env reference-sdp-vic-gov-au"
-        }
-      ]
-    },
     "lint": {
       "name": "lint",
       "steps": [
