@@ -1,23 +1,19 @@
 {
   "dependencies": [
     {
+      "name": "@dpc-sdp/nuxt-ripple",
+      "type": "build"
+    },
+    {
       "name": "@dpc-sdp/nuxt-ripple-analytics",
-      "version": "^2.31.0",
       "type": "build"
     },
     {
       "name": "@dpc-sdp/nuxt-ripple-preview",
-      "version": "^2.31.0",
-      "type": "build"
-    },
-    {
-      "name": "@dpc-sdp/nuxt-ripple",
-      "version": "^2.31.0",
       "type": "build"
     },
     {
       "name": "@dpc-sdp/ripple-sdp-core",
-      "version": "^2.31.0",
       "type": "build"
     },
     {
@@ -26,7 +22,6 @@
     },
     {
       "name": "@dpc-sdp/ripple-test-utils",
-      "version": "^2.31.0",
       "type": "build"
     },
     {
@@ -59,7 +54,6 @@
     },
     {
       "name": "nuxt",
-      "version": "3.17.3",
       "type": "build"
     },
     {
