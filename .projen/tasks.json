@@ -84,15 +84,6 @@
         }
       ]
     },
-    "lagoon:env": {
-      "name": "lagoon:env",
-      "description": "Copy environment variables from Lagoon into .playground/.env. Requires lagoon CLI installed.",
-      "steps": [
-        {
-          "exec": "./scripts/lagoon-env.sh --output ./.playground/.env reference-sdp-vic-gov-au"
-        }
-      ]
-    },
     "lint": {
       "name": "lint",
       "steps": [
@@ -172,13 +163,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@dpc-sdp/ripple-sdp-projen-config,@types/node,jscodeshift,prettier,projen,tsx,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@dpc-sdp/nuxt-ripple,@dpc-sdp/nuxt-ripple-analytics,@dpc-sdp/nuxt-ripple-preview,@dpc-sdp/ripple-sdp-core,@dpc-sdp/ripple-sdp-projen-config,@dpc-sdp/ripple-test-utils,@types/node,jscodeshift,nuxt,prettier,projen,tsx,typescript"
         },
         {
           "exec": "npm install"
         },
         {
-          "exec": "npm update @dpc-sdp/nuxt-ripple-analytics @dpc-sdp/nuxt-ripple-preview @dpc-sdp/nuxt-ripple @dpc-sdp/ripple-sdp-core @dpc-sdp/ripple-sdp-projen-config @dpc-sdp/ripple-test-utils @nuxt/eslint @types/node constructs cypress eslint jscodeshift nuxt prettier projen start-server-and-test tsx typescript vitest"
+          "exec": "npm update @dpc-sdp/nuxt-ripple @dpc-sdp/nuxt-ripple-analytics @dpc-sdp/nuxt-ripple-preview @dpc-sdp/ripple-sdp-core @dpc-sdp/ripple-sdp-projen-config @dpc-sdp/ripple-test-utils @nuxt/eslint @types/node constructs cypress eslint jscodeshift nuxt prettier projen start-server-and-test tsx typescript vitest"
         },
         {
           "exec": "npx projen"
